@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="55dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:src="@drawable/mm"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"/>
+
+        <!--<androidx.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginBottom="8dp">-->
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Name"
+                android:id="@+id/inputName"/>
+        <!--</androidx.support.design.widget.TextInputLayout>-->
+
+
+        <!--<androidx.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginBottom="8dp">-->
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"
+                android:id="@+id/inputEmail"/>
+        <!--</androidx.support.design.widget.TextInputLayout>-->
+
+        <!--<androidx.support.design.widget.TextInputLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginBottom="8dp">-->
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:id="@+id/inputPassword"/>
+        <!--</androidx.support.design.widget.TextInputLayout>-->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="18dp"
+            android:background="@drawable/white_roundable_button"
+            android:padding="15dp"
+            android:layout_marginBottom="25dp"
+            android:id="@+id/SignUpbutton"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already Having An Account,\n Login here..."
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/linkLogin"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/loginRequestLoadingProgressBar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please Wait..."
+        android:id="@+id/textPleaseWait"
+        android:layout_alignBottom="@id/loginRequestLoadingProgressBar"
+        android:layout_alignLeft="@id/loginRequestLoadingProgressBar"
+        android:layout_alignRight="@id/loginRequestLoadingProgressBar"
+        android:textSize="20sp"
+        />
+
+
+</RelativeLayout>

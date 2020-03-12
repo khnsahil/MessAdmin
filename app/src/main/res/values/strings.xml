@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MessAdmin</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="sign_out">Sign out</string>
+    <string name="profile_fragment">Profile</string>
+    <string name="confirm_password_dialog">ConfirmPasswordDialog</string>
+    <string name="calling_activity">calling_activity</string>
+    <string name="profile_activity">Profile Activity</string>
+
+
+    <string name="dbname_user">users</string>
+    <string name="dbname_user_account_setting">user_account_setting</string>
+    <string name="dbname_restaurant">restaurant</string>
+    <string name="field_username">user_name</string>
+    <string name="field_email">email</string>
+    <string name="field_display_name">display_name</string>
+    <string name="field_website">website</string>
+    <string name="field_description">description</string>
+    <string name="field_phone_number">phone_number</string>
+
+    <string name="gallery">GALLERY</string>
+    <string name="photo">PHOTO</string>
+    <string name="string_open_camera">Open Camera</string>
+</resources>

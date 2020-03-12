@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/im_rest"
+        android:src="@drawable/r"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_rest_name"
+        android:layout_toRightOf="@id/im_rest"
+        android:text="Restaurant Name"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_res_type"
+        android:layout_toRightOf="@id/im_rest"
+        android:layout_below="@id/tv_rest_name"
+        android:layout_marginLeft="5dp"
+        android:textSize="15sp"
+        android:text="Pure Veg"/>
+    <TextView
+        android:id="@+id/tv_timings"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/im_rest"
+        android:layout_below="@id/tv_res_type"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/off_red"
+        android:text="12.00 PM-03.00 PM, 07.00 PM-10.00 PM"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/tv_timings"
+        android:layout_toRightOf="@id/im_rest"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:layout_marginStart="15dp"
+        android:id="@+id/tv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating:4.0"
+        android:layout_toRightOf="@id/im_rest"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avg Price:₹100"
+        android:layout_toRightOf="@id/tv_rating"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/tv_price"
+        />
+
+</RelativeLayout>
