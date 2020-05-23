@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.messadmin.Login.HomeActivity;
 import com.example.messadmin.Login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setupFirebaseAuth();
+
     }
 
 
@@ -91,11 +93,16 @@ public class MainActivity extends AppCompatActivity {
         {
             Intent intent=new Intent(mContext, LoginActivity.class);
             startActivity(intent);
+            finish();
             Log.d(TAG, "checkCurrentUser: no user logged in");
         }
 
-        else
-            Log.d(TAG, "checkCurrentUser: user id:"+user.getUid()+" logged in");
+        else {
+            Log.d(TAG, "checkCurrentUser: user id:" + user.getUid() + " logged in");
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            finish();
+
+        }
     }
 
     @Override

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRest">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Restaurant"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:id="@+id/tv_add_rest"/>
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Res Name"
+        android:id="@+id/et_rname"
+        android:layout_below="@id/tv_add_rest"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Res Type"
+        android:id="@+id/et_type"
+        android:layout_below="@id/et_rname"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Time"
+        android:id="@+id/et_time"
+        android:layout_below="@id/et_type"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Res Rating"
+        android:id="@+id/et_rating"
+        android:layout_below="@id/et_time"
+        />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="Res Avg Price"
+        android:id="@+id/et_avg_price"
+        android:layout_below="@id/et_rating"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_avg_price"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/white_roundable_button"
+        android:text="Submit"
+        android:id="@+id/bt_submit"
+        android:layout_marginTop="40dp"/>
+</RelativeLayout>

@@ -3,11 +3,14 @@ package com.example.messadmin.models;
 public class MenuItem {
 
     String name;
-    Double price;
+    Integer price;
 
-    public MenuItem(String name, Double price) {
+    public MenuItem(String name, Integer price) {
         this.name = name;
         this.price = price;
+    }
+
+    public MenuItem() {
     }
 
     public String getName() {
@@ -18,11 +21,19 @@ public class MenuItem {
         this.name = name;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

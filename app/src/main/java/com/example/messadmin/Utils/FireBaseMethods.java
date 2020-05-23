@@ -1,6 +1,8 @@
 package com.example.messadmin.Utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,8 +21,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -32,10 +43,13 @@ public class FireBaseMethods {
     private DatabaseReference myRef;
 
     private Context mContext;
+    private SharedPreferences mPeferences;
+    private SharedPreferences.Editor mEditor;
 
     private EditText eMail,mUserName,mPassword;
     private String userID;
-
+    ArrayList<String> resIdList;
+    String res_id;
     public FireBaseMethods(Context context)
     {
         mAuth= FirebaseAuth.getInstance();
@@ -53,33 +67,6 @@ public class FireBaseMethods {
 
     }
 
-
-//    public boolean checkIfUserNameExists(String username, DataSnapshot dataSnapshot)
-//    {
-//        Log.d(TAG, "checkIfUserNameExists: navigating to check if username already exists");
-//        User user=new User();
-//
-//
-//        if (userID!=null)
-//        {
-//            for (DataSnapshot ds : dataSnapshot.child(userID).getChildren()) {
-//                Log.d(TAG, "checkIfUserNameExists: datasnapshot: " + ds);
-//                user.setUser_name(ds.getValue(User.class).getUser_name());
-//
-//                if (StringManipulation.expandUsername(user.getUser_name()).equals(username)) {
-//                    Log.d(TAG, "checkIfUserNameExists: Found A MATCH" + user.getUser_name());
-//                    return true;
-//
-//                }
-//
-//
-//            }
-//            return false;
-//        }
-//        Log.d(TAG, "checkIfUserNameExists: user id not found");
-//        return false;
-//
-//    }
 
     //updating username in user's and usersetting's nodes
     public void updateUserName(String Username)
@@ -161,36 +148,7 @@ public class FireBaseMethods {
 
     }
 
-//    public void createNewUser(final String userName,final String email,String password)
-//    {
-//        mAuth.createUserWithEmailAndPassword(email, password)
-//            .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-//            @Override
-//            public void onComplete(@NonNull Task<AuthResult> task) {
-//                if (task.isSuccessful()) {
-//                // Sign in success, update UI with the signed-in user's information
-//                Log.d(TAG, "createUserWithEmail:success");
-//
-//
-//                FirebaseUser user = mAuth.getCurrentUser();
-//                userID=mAuth.getCurrentUser().getUid();
-//                updateUI(user);
-//                Toast.makeText(mContext, "Registeration Successful", Toast.LENGTH_SHORT).show();
-//                 }
-//
-//                 else {
-//                // If sign in fails, display a message to the user.
-//                Log.w(TAG, "createUserWithEmail:failure", task.getException());
-//                Toast.makeText(mContext, "Authentication failed.",
-//                        Toast.LENGTH_SHORT).show();
-//                updateUI(null);
-//            }
-//
-//            // ...
-//        }
-//    });
-//
-//    }
+
 
     public void registerNewEmail(final String email, String password, final String username){
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -248,7 +206,7 @@ public class FireBaseMethods {
     public void addNewUser(String email, String user_name, String description, String website, String profile_photo)
     {
 
-        User user=new User(email,1, userID,user_name,"admin");
+        User user=new User(userID,1, email,user_name,"admin");
 
         myRef.child(mContext.getString(R.string.dbname_user)).child(userID).setValue(user);
 
@@ -324,10 +282,19 @@ public class FireBaseMethods {
     public void addNewRestaurant(String name, String type, String time, String rating, String price)
     {
 
-        Restaurant restaurant=new Restaurant(name,type,time,price,rating,"https://www.chatelaine.com/wp-content/uploads/2019/01/canada-new-food-guide-2019.jpeg");
         String mResId = myRef.push().getKey();
+        Restaurant restaurant=new Restaurant(name,type,time,price,rating,"https://www.chatelaine.com/wp-content/uploads/2019/01/canada-new-food-guide-2019.jpeg",res_id);
+
 
         myRef.child(mContext.getString(R.string.dbname_restaurant)).child(mResId).setValue(restaurant);
+        myRef.child("admin_data").child(userID).child("res_id").child("1").setValue(mResId);
+
+        mPeferences= PreferenceManager.getDefaultSharedPreferences(mContext);
+        mEditor=mPeferences.edit();
+        mEditor.putString("user_id",userID);
+        mEditor.putString("res_id",mResId);
+        mEditor.commit();
+
 
         Log.d(TAG, "addNewRestaurant: Adding new restaurant");
     }

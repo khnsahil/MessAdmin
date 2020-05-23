@@ -1,18 +1,19 @@
 package com.example.messadmin.models;
 
 public class Restaurant {
-    private String res_name,res_type,timing,price,rating,profile_pic;
+    private String res_name,res_type,timing,price,rating,profile_pic,res_id;
 
     public Restaurant() {
     }
 
-    public Restaurant(String res_name, String res_type, String timing, String price, String rating, String profile_pic) {
+    public Restaurant(String res_name, String res_type, String timing, String price, String rating, String profile_pic, String res_id) {
         this.res_name = res_name;
         this.res_type = res_type;
         this.timing = timing;
         this.price = price;
         this.rating = rating;
         this.profile_pic = profile_pic;
+        this.res_id = res_id;
     }
 
     public String getRes_name() {
@@ -63,6 +64,14 @@ public class Restaurant {
         this.profile_pic = profile_pic;
     }
 
+    public String getRes_id() {
+        return res_id;
+    }
+
+    public void setRes_id(String res_id) {
+        this.res_id = res_id;
+    }
+
     @Override
     public String toString() {
         return "Restaurant{" +
@@ -72,6 +81,7 @@ public class Restaurant {
                 ", price='" + price + '\'' +
                 ", rating='" + rating + '\'' +
                 ", profile_pic='" + profile_pic + '\'' +
+                ", res_id='" + res_id + '\'' +
                 '}';
     }
 }

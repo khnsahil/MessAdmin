@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewInterestActivity">
+
+    <TextView
+        android:id="@+id/tv_tot_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Number of Intrested people:"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="35dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tv_int_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="85sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_tot_people"/>
+</RelativeLayout>

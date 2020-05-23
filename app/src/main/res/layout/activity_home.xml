@@ -1,9 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login.HomeActivity">
+    tools:context=".Login.HomeActivity"
+    android:background="@color/white">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/pb_main"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:id="@+id/rel_main"
+        android:visibility="gone">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mess Name"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:id="@+id/tv_mess_name"
+            />
+        <TextView
+            android:id="@+id/tv_mess_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Mess Type"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"
+            android:layout_below="@id/tv_mess_name"
+            />
+        <View
+            android:id="@+id/dotline1"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/tv_mess_type"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dotline1"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_margin="10dp"
+            android:id="@+id/ll1">
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.1\n Rating"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/tv_timings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 AM to 8PM \n Timing"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs 80 \n Avg. Price"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/dotline2"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_below="@id/ll1"/>
+
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Serving Now:"
+            android:layout_below="@id/dotline2"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_serving"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_serving_dish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sev Tamatar,Roti,Moong Dal,Fry Rice"
+            android:layout_below="@id/tv_serving"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_serving_dish"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/ll2">
+
+            <RelativeLayout
+                android:id="@+id/rel_full_menu"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/grey_roundable_button">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/menu"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Menu"
+                    android:textSize="20sp"
+                    android:textColor="@color/light_black"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/rel_addSurvey"
+                android:background="@drawable/grey_roundable_button">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/voting"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Survey"
+                    android:textSize="20sp"
+                    android:textColor="@color/light_black"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll2"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+
+            android:id="@+id/ll3">
+
+            <RelativeLayout
+                android:id="@+id/rel_interest"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/grey_roundable_button">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/pin1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Interests"
+                    android:textSize="20sp"
+                    android:textColor="@color/light_black"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/rel_rate"
+                android:background="@drawable/grey_roundable_button">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/review"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Votes"
+                    android:textSize="20sp"
+                    android:textColor="@color/light_black"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll3"
+            android:layout_marginTop="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reg.No:89AB4445"
+                android:gravity="center"
+                android:id="@+id/tv_reg"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact:8871566671"
+                android:layout_below="@id/tv_reg"
+                android:gravity="center"
+                android:id="@+id/tv_contact"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email:care@guruji.com"
+                android:layout_below="@id/tv_contact"
+                android:gravity="center"
+                android:id="@+id/tv_email"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
