@@ -39,7 +39,7 @@ public class ViewInterestActivity extends AppCompatActivity {
     private SharedPreferences mPeferences;
     private SharedPreferences.Editor mEditor;
     String pr_us_id;
-    String pr_mess_id;
+    String pr_mess_id="-M4jUfnrJZyi2MwKspJk";
     int sum=0;
     Context context=ViewInterestActivity.this;
 
@@ -59,11 +59,11 @@ public class ViewInterestActivity extends AppCompatActivity {
         DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
 
         String tomorrowAsString = dateFormat.format(today);
-
-        mPeferences= PreferenceManager.getDefaultSharedPreferences(context);
-        mEditor=mPeferences.edit();
-        pr_us_id=mPeferences.getString("user_id","");
-        pr_mess_id="-"+mPeferences.getString("res_id","");
+//
+//        mPeferences= PreferenceManager.getDefaultSharedPreferences(context);
+//        mEditor=mPeferences.edit();
+//        pr_us_id=mPeferences.getString("user_id","");
+//        pr_mess_id="-"+mPeferences.getString("res_id","");
 
         setupFirebaseAuth();
 
@@ -72,7 +72,7 @@ public class ViewInterestActivity extends AppCompatActivity {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                
                 for (DataSnapshot snapshot:dataSnapshot.getChildren())
                 {
                     sum+=Integer.valueOf(snapshot.getValue().toString());

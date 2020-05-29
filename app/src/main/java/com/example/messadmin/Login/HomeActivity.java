@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
     private SharedPreferences mPeferences;
     private SharedPreferences.Editor mEditor;
     String pr_us_id;
-    String pr_mess_id;
+    String pr_mess_id="-M4jUfnrJZyi2MwKspJk";
     Restaurant restaurant;
 
     @Override
@@ -78,87 +78,88 @@ public class HomeActivity extends AppCompatActivity {
 
 
         setupFirebaseAuth();
-        mPeferences= PreferenceManager.getDefaultSharedPreferences(mContext);
-        mEditor=mPeferences.edit();
-
-         pr_us_id=mPeferences.getString("user_id","");
-         pr_mess_id=mPeferences.getString("res_id","");
+//        mPeferences= PreferenceManager.getDefaultSharedPreferences(mContext);
+//        mEditor=mPeferences.edit();
+//
+//         pr_us_id=mPeferences.getString("user_id","");
+//         pr_mess_id=mPeferences.getString("res_id","");
 
         //Log.d(TAG, "onCreate: user: "+pr_us_id+);
 
-        if (pr_mess_id.equals("") || !pr_us_id.equals(user_id))
-        {
-            Query query = myRef.child("admin_data").child(user_id);
-            query.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//        if (pr_mess_id.equals("") || !pr_us_id.equals(user_id))
+//        {
+//            Query query = myRef.child("admin_data").child(user_id);
+//            query.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                    Log.d(TAG, "onDataChange: ds: "+dataSnapshot.toString());
+//                    // objectMap = (HashMap<String, String>) dataSnapshot.getValue();
+//                    try {
+//                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
+//                        {
+//                            Log.d(TAG, "onDataChange: ps: "+postSnapshot.getValue().toString());
+//                            //objectMap = (HashMap<String, String>) postSnapshot.getValue();
+//                            list = (ArrayList<String>) postSnapshot.getValue();
+//                            // list.add(postSnapshot.getValue().toString());
+//
+//                        }
+//                        list.removeAll(Collections.singletonList(null));
+//
+//                        if (!list.isEmpty())
+//                        {
+//                            mEditor.putString("user_id",user_id);
+//                            mEditor.putString("res_id",list.get(0));
+//                            mEditor.commit();
+//
+//                            Log.d(TAG, "onDataChange: shared pref res id: "+list.get(0));
+//                        }
+//
+//
+//                        Log.d(TAG, "onDataChange: ob: "+list.toString());
+//                    }
+//                    catch (Exception e)
+//                    {
+//                        Log.d(TAG, "onDataChange: "+e.getMessage());
+//                    }
+//                    finally {
+//                        pr_us_id=mPeferences.getString("user_id","");
+//                        pr_mess_id=mPeferences.getString("res_id","");
+//
+//                        if (pr_mess_id.equals(""))
+//                        {
+//                            Log.d(TAG, "onCreate: mess id "+pr_mess_id);
+//                            startActivity(new Intent(HomeActivity.this, AddRest.class));
+//                        }
+//                        else   init();
+//                    }
+//
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                }
+//            });
+//
+//            Log.d(TAG, "onCreate: list: "+list.toString());
+//        }
 
-                    Log.d(TAG, "onDataChange: ds: "+dataSnapshot.toString());
-                    // objectMap = (HashMap<String, String>) dataSnapshot.getValue();
-                    try {
-                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-                        {
-                            Log.d(TAG, "onDataChange: ps: "+postSnapshot.getValue().toString());
-                            //objectMap = (HashMap<String, String>) postSnapshot.getValue();
-                            list = (ArrayList<String>) postSnapshot.getValue();
-                            // list.add(postSnapshot.getValue().toString());
-
-                        }
-                        list.removeAll(Collections.singletonList(null));
-
-                        if (!list.isEmpty())
-                        {
-                            mEditor.putString("user_id",user_id);
-                            mEditor.putString("res_id",list.get(0));
-                            mEditor.commit();
-
-                            Log.d(TAG, "onDataChange: shared pref res id: "+list.get(0));
-                        }
-
-
-                        Log.d(TAG, "onDataChange: ob: "+list.toString());
-                    }
-                    catch (Exception e)
-                    {
-                        Log.d(TAG, "onDataChange: "+e.getMessage());
-                    }
-                    finally {
-                        pr_us_id=mPeferences.getString("user_id","");
-                        pr_mess_id=mPeferences.getString("res_id","");
-
-                        if (pr_mess_id.equals(""))
-                        {
-                            Log.d(TAG, "onCreate: mess id "+pr_mess_id);
-                            startActivity(new Intent(HomeActivity.this, AddRest.class));
-                        }
-                        else   init();
-                    }
-
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-            Log.d(TAG, "onCreate: list: "+list.toString());
-        }
-
-
-        pr_us_id=mPeferences.getString("user_id","");
-        pr_mess_id=mPeferences.getString("res_id","");
-
-        if (pr_mess_id.equals(""))
-        {
-            Log.d(TAG, "onCreate: mess id "+pr_mess_id);
-            startActivity(new Intent(HomeActivity.this, AddRest.class));
-        }
-        else   init();
+//
+//        pr_us_id=mPeferences.getString("user_id","");
+//        pr_mess_id=mPeferences.getString("res_id","");
+//
+//        if (pr_mess_id.equals(""))
+//        {
+//            Log.d(TAG, "onCreate: mess id "+pr_mess_id);
+//            startActivity(new Intent(HomeActivity.this, AddRest.class));
+//        }
+//        else   init();
 
 
 
+        init();
 
 
 
@@ -167,37 +168,48 @@ public class HomeActivity extends AppCompatActivity {
 
     private void init() {
 
-        Query query=myRef.child("restaurant");
+        Query query=myRef.child("restaurant").child(pr_mess_id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 Log.d(TAG, "onDataChange: save mess id: "+pr_mess_id);
-                for (DataSnapshot snapshot:dataSnapshot.getChildren())
-                {
+                Log.d(TAG, "onDataChange: ds: "+dataSnapshot.toString());
+                Restaurant restaurant=dataSnapshot.getValue(Restaurant.class);
 
-                    if (snapshot.getKey().trim().equals("-"+pr_mess_id))
-                    {
-                       objectMap = (HashMap<String, String >) snapshot.getValue();
+                mess_name.setText(restaurant.getRes_name());mess_type.setText(restaurant.getRes_type());
+                rating.setText(restaurant.getRating()+"\n Rating");
+                price.setText(restaurant.getPrice()+" \n Avg. Price");
+               timing.setText(restaurant.getTiming()+"\n Timing");
 
-                        if (objectMap!=null)
-                        {
-                            mess_name.setText(objectMap.get("res_name"));
-                            mess_type.setText(objectMap.get("res_type"));
-                            rating.setText(objectMap.get("rating")+"\n Rating");
-                            price.setText(objectMap.get("price")+" \n Avg. Price");
-                            timing.setText(objectMap.get("timing")+"\n Timing");
+                progressBar.setVisibility(View.GONE);
+                relativeLayout.setVisibility(View.VISIBLE);
 
-                            progressBar.setVisibility(View.GONE);
-                            relativeLayout.setVisibility(View.VISIBLE);
-                        }
-//                        Restaurant my_restaurant=snapshot.getValue(Restaurant.class);
-//                       restaurant=my_restaurant;
-
-                        Log.d(TAG, "onDataChange: found: "+objectMap.toString());
-
-                    }
-                }
+//                for (DataSnapshot snapshot:dataSnapshot.getChildren())
+//                {
+//
+//                    if (snapshot.getKey().trim().equals("-"+pr_mess_id))
+//                    {
+//                       objectMap = (HashMap<String, String >) snapshot.getValue();
+//
+//                        if (objectMap!=null)
+//                        {
+//                            mess_name.setText(objectMap.get("res_name"));
+//                            mess_type.setText(objectMap.get("res_type"));
+//                            rating.setText(objectMap.get("rating")+"\n Rating");
+//                            price.setText(objectMap.get("price")+" \n Avg. Price");
+//                            timing.setText(objectMap.get("timing")+"\n Timing");
+//
+//                            progressBar.setVisibility(View.GONE);
+//                            relativeLayout.setVisibility(View.VISIBLE);
+//                        }
+////                        Restaurant my_restaurant=snapshot.getValue(Restaurant.class);
+////                       restaurant=my_restaurant;n[0-pvb
+//
+//                        Log.d(TAG, "onDataChange: found: "+objectMap.toString());
+//
+//                    }
+//                }
                 //Log.d(TAG, "onDataChange: rest: "+dataSnapshot.toString());
             }
 

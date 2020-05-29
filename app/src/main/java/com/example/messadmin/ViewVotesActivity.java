@@ -53,7 +53,8 @@ public class ViewVotesActivity extends AppCompatActivity {
     private SharedPreferences mPeferences;
     private SharedPreferences.Editor mEditor;
     String pr_us_id;
-    String pr_mess_id;
+    String pr_mess_id="-M4jUfnrJZyi2MwKspJk";
+
 
     ArrayList<String> intrest_list=new ArrayList<>();
 
@@ -71,11 +72,11 @@ public class ViewVotesActivity extends AppCompatActivity {
         DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
 
         String tomorrowAsString = dateFormat.format(tomorrow);
-
-        mPeferences= PreferenceManager.getDefaultSharedPreferences(context);
-        mEditor=mPeferences.edit();
-        pr_us_id=mPeferences.getString("user_id","");
-        pr_mess_id="-"+mPeferences.getString("res_id","");
+//
+//        mPeferences= PreferenceManager.getDefaultSharedPreferences(context);
+//        mEditor=mPeferences.edit();
+//        pr_us_id=mPeferences.getString("user_id","");
+//        pr_mess_id="-"+mPeferences.getString("res_id","");
 
         setupFirebaseAuth();
 

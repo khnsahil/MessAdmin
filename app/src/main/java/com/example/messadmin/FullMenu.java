@@ -61,7 +61,8 @@ public class FullMenu extends AppCompatActivity {
     private SharedPreferences mPeferences;
     private SharedPreferences.Editor mEditor;
     String pr_us_id;
-    String pr_mess_id;
+    String pr_mess_id="-M4jUfnrJZyi2MwKspJk";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,17 +79,17 @@ public class FullMenu extends AppCompatActivity {
 
         relativeLayout=findViewById(R.id.rel_full_menu);
 
+//
+//        mPeferences= PreferenceManager.getDefaultSharedPreferences(context);
+//        mEditor=mPeferences.edit();
+//        pr_us_id=mPeferences.getString("user_id","");
+//        pr_mess_id="-"+mPeferences.getString("res_id","");
+//
+//        if (pr_mess_id!=null)
+//            res_id=pr_mess_id;
 
-        mPeferences= PreferenceManager.getDefaultSharedPreferences(context);
-        mEditor=mPeferences.edit();
-        pr_us_id=mPeferences.getString("user_id","");
-        pr_mess_id="-"+mPeferences.getString("res_id","");
 
-        if (pr_mess_id!=null)
-            res_id=pr_mess_id;
-
-
-        Query query = myRef.child("menu").child(res_id);
+        Query query = myRef.child("menu").child(pr_mess_id);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

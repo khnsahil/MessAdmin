@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ViewInterestActivity"></activity>
         <activity android:name=".ViewVotesActivity" />
-        <activity android:name=".Login.HomeActivity" />
+        <activity android:name=".Login.HomeActivity" android:launchMode="singleInstance" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

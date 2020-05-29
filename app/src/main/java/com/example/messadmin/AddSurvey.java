@@ -56,7 +56,8 @@ public class AddSurvey extends AppCompatActivity {
     private SharedPreferences mPeferences;
     private SharedPreferences.Editor mEditor;
     String pr_us_id;
-    String pr_mess_id;
+    String pr_mess_id="-M4jUfnrJZyi2MwKspJk";
+
     private Context mContext=AddSurvey.this;
 
     @Override
@@ -73,77 +74,78 @@ public class AddSurvey extends AppCompatActivity {
         add_survey=findViewById(R.id.bt_add_survey);
 
         setupFirebaseAuth();
-
-        mPeferences= PreferenceManager.getDefaultSharedPreferences(mContext);
-        mEditor=mPeferences.edit();
-
-        pr_us_id=mPeferences.getString("user_id","");
-        pr_mess_id="-"+mPeferences.getString("res_id","");
-      //  pr_mess_id="-M-xlkn_sAwzP2Zv2bGR";
-
-        if (pr_mess_id.equals("") || !pr_us_id.equals(user_id))
-        {
-            Query query = myRef.child("admin_data").child(user_id);
-            query.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                    Log.d(TAG, "onDataChange: ds: "+dataSnapshot.toString());
-                    // objectMap = (HashMap<String, String>) dataSnapshot.getValue();
-                    try {
-                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
-                        {
-                            Log.d(TAG, "onDataChange: ps: "+postSnapshot.getValue().toString());
-                            //objectMap = (HashMap<String, String>) postSnapshot.getValue();
-                            list = (ArrayList<String>) postSnapshot.getValue();
-                            // list.add(postSnapshot.getValue().toString());
-
-                        }
-                        list.removeAll(Collections.singletonList(null));
-
-                        if (!list.isEmpty())
-                        {
-                            mEditor.putString("user_id",user_id);
-                            mEditor.putString("res_id",list.get(0));
-                            mEditor.commit();
-
-                            Log.d(TAG, "onDataChange: shared pref res id: "+list.get(0));
-                        }
-
-
-                        Log.d(TAG, "onDataChange: ob: "+list.toString());
-                    }
-                    catch (Exception e)
-                    {
-                        Log.d(TAG, "onDataChange: "+e.getMessage());
-                    }
-                    finally {
-                        pr_us_id=mPeferences.getString("user_id","");
-                        pr_mess_id=mPeferences.getString("res_id","");
-
-                        if (pr_mess_id.equals(""))
-                        {
-                            Log.d(TAG, "onCreate: mess id "+pr_mess_id);
-                            startActivity(new Intent(AddSurvey.this, AddRest.class));
-                            finish();
-                        }
-                    }
-
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-
-            Log.d(TAG, "onCreate: list: "+list.toString());
-        }
-
-        if (pr_mess_id.equals(""))
-        {startActivity(new Intent(AddSurvey.this, AddRest.class)); finish();}
-        else init();
+//
+//        mPeferences= PreferenceManager.getDefaultSharedPreferences(mContext);
+//        mEditor=mPeferences.edit();
+//
+//        pr_us_id=mPeferences.getString("user_id","");
+//        pr_mess_id="-"+mPeferences.getString("res_id","");
+//      //  pr_mess_id="-M-xlkn_sAwzP2Zv2bGR";
+//
+//        if (pr_mess_id.equals("") || !pr_us_id.equals(user_id))
+//        {
+//            Query query = myRef.child("admin_data").child(user_id);
+//            query.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                    Log.d(TAG, "onDataChange: ds: "+dataSnapshot.toString());
+//                    // objectMap = (HashMap<String, String>) dataSnapshot.getValue();
+//                    try {
+//                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren())
+//                        {
+//                            Log.d(TAG, "onDataChange: ps: "+postSnapshot.getValue().toString());
+//                            //objectMap = (HashMap<String, String>) postSnapshot.getValue();
+//                            list = (ArrayList<String>) postSnapshot.getValue();
+//                            // list.add(postSnapshot.getValue().toString());
+//
+//                        }
+//                        list.removeAll(Collections.singletonList(null));
+//
+//                        if (!list.isEmpty())
+//                        {
+//                            mEditor.putString("user_id",user_id);
+//                            mEditor.putString("res_id",list.get(0));
+//                            mEditor.commit();
+//
+//                            Log.d(TAG, "onDataChange: shared pref res id: "+list.get(0));
+//                        }
+//
+//
+//                        Log.d(TAG, "onDataChange: ob: "+list.toString());
+//                    }
+//                    catch (Exception e)
+//                    {
+//                        Log.d(TAG, "onDataChange: "+e.getMessage());
+//                    }
+//                    finally {
+//                        pr_us_id=mPeferences.getString("user_id","");
+//                        pr_mess_id=mPeferences.getString("res_id","");
+//
+//                        if (pr_mess_id.equals(""))
+//                        {
+//                            Log.d(TAG, "onCreate: mess id "+pr_mess_id);
+//                            startActivity(new Intent(AddSurvey.this, AddRest.class));
+//                            finish();
+//                        }
+//                    }
+//
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                }
+//            });
+//
+//            Log.d(TAG, "onCreate: list: "+list.toString());
+//        }
+//
+//        if (pr_mess_id.equals(""))
+//        {startActivity(new Intent(AddSurvey.this, AddRest.class)); finish();}
+//        else
+            init();
 
 
 
